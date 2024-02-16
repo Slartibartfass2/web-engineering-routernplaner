@@ -21,29 +21,31 @@
         </header>
         <main>
             <section>
-                <input
-                    type="text"
-                    name="start"
-                    id="start-station"
-                    placeholder="Starthaltestelle eingeben"
-                    list="stations"
-                />
-                <input
-                    type="text"
-                    name="stop"
-                    id="stop-section"
-                    placeholder="Endhaltestelle eingeben"
-                    list="stations"
-                />
-                <datalist id="stations">
-                    <option value="Universität Süd"></option>
-                    <option value="Botanischer Garten"></option>
-                    <option value="Sonnenfeld"></option>
-                    <option value="Lise-Meitner Straße"></option>
-                    <option value="Eselsbergsteige"></option>
-                    <option value="Söflinger Weinberge"></option>
-                </datalist>
-                <input type="button" value="->" />
+                <form>
+                    <input
+                        type="text"
+                        name="start"
+                        id="start-station"
+                        placeholder="Starthaltestelle eingeben"
+                        list="stations"
+                    />
+                    <input
+                        type="text"
+                        name="stop"
+                        id="stop-section"
+                        placeholder="Endhaltestelle eingeben"
+                        list="stations"
+                    />
+                    <datalist id="stations">
+                        <option value="Universität Süd"></option>
+                        <option value="Botanischer Garten"></option>
+                        <option value="Sonnenfeld"></option>
+                        <option value="Lise-Meitner Straße"></option>
+                        <option value="Eselsbergsteige"></option>
+                        <option value="Söflinger Weinberge"></option>
+                    </datalist>
+                    <input type="button" value="->" />
+                </form>
                 <div id="result-list">
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                     diam nonumy eirmod tempor invidunt ut labore et dolore magna
