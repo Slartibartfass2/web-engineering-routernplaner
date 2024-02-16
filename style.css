@@ -1,0 +1,149 @@
+body {
+  font: 1rem sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header,
+footer {
+  background-color: rgb(68, 68, 68);
+  color: white;
+}
+
+header {
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+footer {
+  padding: 0.5rem 1.5rem;
+}
+
+header h1 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+header ul {
+  list-style: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+header li {
+  background-color: rgb(53, 126, 34);
+  float: left;
+  margin-right: 0.5rem;
+  padding: 0.25rem 0.7rem;
+}
+
+header li:hover {
+  background-color: rgb(44, 105, 29);
+}
+
+header li a {
+  color: white;
+  text-decoration: none;
+}
+
+header li .selected {
+  text-decoration: underline;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex: 1;
+}
+
+/* X-Small */
+@media screen and (max-width: 576px) {
+  main {
+    /* background-color: blue; */
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+/* Small */
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  main {
+    /* background-color: green; */
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+/* Medium */
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  main {
+    /* background-color: red; */
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+/* Large */
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  main {
+    /* background-color: orange; */
+    padding: 2.5rem 3rem;
+  }
+}
+
+/* Extra Large */
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+  main {
+    /* background-color: skyblue; */
+    padding: 2.5rem 6rem;
+  }
+}
+
+/* Extra extra large */
+@media screen and (min-width: 1400px) {
+  main {
+    /* background-color: purple; */
+    padding: 2.5rem 8rem;
+  }
+}
+
+.input-section {
+  flex: 5;
+}
+
+.favorites-section {
+  flex: 2;
+}
+
+#result-list {
+  background-color: rgb(45, 45, 45);
+  color: white;
+  padding: 0.8rem;
+  margin: 0.7rem 0;
+}
+
+#favorites {
+  list-style: none;
+  padding: 0;
+}
+
+#favorites li {
+  padding-bottom: 0.3rem;
+}
+
+.stop-list {
+  list-style: none;
+  margin: 0.5rem 0;
+  padding: 0;
+}
+
+.stop-list li {
+  padding: 0.8rem 1rem;
+  margin: 0.1rem 0;
+  border: 1px black solid;
+  display: flex;
+}
+
+.stop-list li div {
+  flex: 1;
+}

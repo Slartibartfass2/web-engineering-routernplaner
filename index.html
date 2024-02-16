@@ -8,19 +8,20 @@
             rel="stylesheet"
             href="https://necolas.github.io/normalize.css/latest/normalize.css"
         />
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
         <header>
             <h1>Web Engineering Routenplaner</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="#" class="selected">Home</a></li>
                     <li><a href="stops.html">Stops</a></li>
                 </ul>
             </nav>
         </header>
         <main>
-            <section>
+            <section class="input-section">
                 <form>
                     <input
                         type="text"
@@ -44,7 +45,7 @@
                         <option value="Eselsbergsteige"></option>
                         <option value="Söflinger Weinberge"></option>
                     </datalist>
-                    <input type="button" value="->" />
+                    <input type="button" value="Suchen" />
                 </form>
                 <div id="result-list">
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
@@ -59,7 +60,7 @@
                     sea takimata sanctus est Lorem ipsum dolor sit amet.
                 </div>
             </section>
-            <section>
+            <section class="favorites-section">
                 <h2>Favorit: Haltestelle</h2>
                 <ul id="favorites">
                     <li>Lorem ipsum dolor sit amet</li>
