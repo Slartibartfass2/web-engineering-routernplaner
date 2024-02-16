@@ -9,6 +9,7 @@
         "noImplicitAny": false,
         "lib": ["ES2016", "DOM"],
         "strictNullChecks": true,
+        "esModuleInterop": true
     },
     "include": [
         "src/**/*"

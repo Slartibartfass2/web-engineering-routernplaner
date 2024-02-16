@@ -1,14 +1,12 @@
-import { v4 as uuidv4 } from "uuid";
-
-export type StopId = uuidv4;
-export type LineId = uuidv4;
+export type StopId = number;
+export type LineId = number;
 export type EdgeId = string;
 
 export interface PathNode {
   readonly id: StopId;
   readonly cost: number;
   readonly delay: number;
-  readonly line: Line;
+  readonly line?: Line;
 }
 
 export interface Line {
@@ -28,17 +26,23 @@ export interface Edge {
 export interface Stop {
   readonly id: StopId;
   readonly name: string;
-  readonly edges: Edge[];
+  readonly edges: readonly Edge[];
 }
 
 export interface Departure {
   readonly line: LineId;
   readonly display: string;
   readonly time: Date;
+  readonly heading: StopId;
+}
+
+export interface Departures {
+  readonly departures: Departure[];
+  readonly date: Date;
 }
 
 export interface Graph {
-  readonly nodes: Stop[];
+  readonly nodes: readonly Stop[];
 }
 
 export function getEdge(startStop: Stop, nextStop: Stop): Edge | undefined {
@@ -49,7 +53,7 @@ export function findNode(graph: Graph, id: StopId): Stop | undefined {
   return graph.nodes.find((node) => node.id == id);
 }
 
-const edgesToString = (edges: Edge[]) =>
+const edgesToString = (edges: readonly Edge[]) =>
   `[${edges.map((edge) => edge.target.id).join(" ")}]`;
 
 export function print(graph: Graph) {
@@ -77,7 +81,7 @@ export function dfsearch(
     cost: 0,
     delay: 0,
     line: {
-      id: uuidv4(),
+      id: Math.random(),
       display: "Start",
       heading: startId,
     },
