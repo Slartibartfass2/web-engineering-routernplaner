@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Web Engineering Routenplaner</title>
+        <link
+            rel="stylesheet"
+            href="https://necolas.github.io/normalize.css/latest/normalize.css"
+        />
+    </head>
+    <body>
+        <header>
+            <h1>Web Engineering Routenplaner</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="stops.html">Stops</a></li>
+            </ul>
+        </header>
+        <main>
+            <section>
+                <input
+                    type="text"
+                    name="start"
+                    id="start-station"
+                    placeholder="Starthaltestelle eingeben"
+                    list="stations"
+                />
+                <input
+                    type="text"
+                    name="stop"
+                    id="stop-section"
+                    placeholder="Endhaltestelle eingeben"
+                    list="stations"
+                />
+                <datalist id="stations">
+                    <option value="Universität Süd"></option>
+                    <option value="Botanischer Garten"></option>
+                    <option value="Sonnenfeld"></option>
+                    <option value="Lise-Meitner Straße"></option>
+                    <option value="Eselsbergsteige"></option>
+                    <option value="Söflinger Weinberge"></option>
+                </datalist>
+                <input type="button" value="->" />
+                <div id="result-list">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                    justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                    sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                    ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                    nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                    justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                    sea takimata sanctus est Lorem ipsum dolor sit amet.
+                </div>
+            </section>
+            <section>
+                <h2>Favorit: Haltestelle</h2>
+                <ul id="favorites">
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>Lorem ipsum dolor sit amet</li>
+                </ul>
+            </section>
+        </main>
+        <footer>Copyright © 2024 Felix Schlegel.</footer>
+    </body>
+</html>
