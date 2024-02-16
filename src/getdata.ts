@@ -86,7 +86,7 @@ export async function getDepartures(
 ): Promise<Departures> {
   const time = `${startDate.getHours()}:${startDate.getMinutes()}`;
   const response = await requestData(
-    basicLink + `/stop/${stopId}/departure?start=${time}`
+    basicLink + `stop/${stopId}/departure/?start=${time}`
   );
 
   if (!Array.isArray(response)) {
@@ -103,11 +103,19 @@ export async function getDepartures(
   return {
     date: startDate,
     departures: rawDepartures.map((departure) => {
-      const [hours, minutes] = departure.time.split(":").map(Number.parseInt);
+      const [hours, minutes] = departure.time
+        .split(":")
+        .map((s) => Number.parseInt(s));
+      let date = new Date();
+      if (date.getHours() > hours) {
+        date.setDate(date.getDate() + 1);
+      }
+      date.setHours(hours);
+      date.setMinutes(minutes);
       return {
         line: departure.line,
         display: departure.display,
-        time: new Date(2019, 5, 27, hours, minutes),
+        time: date,
         heading: departure.heading,
       };
     }),
