@@ -17,3 +17,11 @@ function getNext(
         getDateDifferenceInSeconds(time, b.time)
     )[0];
 }
+
+function getDelay(departures: Departures, line: LineId, time: Date): number {
+  const nextDeparture = getNext(departures, line, time);
+  if (nextDeparture === undefined) {
+    return Number.POSITIVE_INFINITY;
+  }
+  return getDateDifferenceInSeconds(time, nextDeparture.time) / 60;
+}
