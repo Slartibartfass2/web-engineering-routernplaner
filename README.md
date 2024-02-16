@@ -1,2 +1,3 @@
-# web-engineering-routernplaner
-Web Engineering Routenplaner
+# Web Engineering Routenplaner
+
+Routenplaner als Übungsaufgabe im Kurs Web Engineering.
