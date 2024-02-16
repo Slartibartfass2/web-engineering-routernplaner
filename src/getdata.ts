@@ -1,6 +1,6 @@
 import bent from "bent";
 import { v4 as uuidv4 } from "uuid";
-import { Departures, Edge, Line, Stop, StopId } from "./main";
+import { Departures, Edge, Line, Stop, StopId } from "./types";
 
 const basicLink = "http://webeng.informatik.uni-ulm.de/line/";
 

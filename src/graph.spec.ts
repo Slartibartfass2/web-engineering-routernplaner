@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
-import { dfsearch, Graph, Line, EdgeId } from "./main";
+import { Graph, Line } from "./types";
+import { dfsearch } from "./graph";
 
 function createEdge(src: any, tgt: any, line: Line): any {
   return {
