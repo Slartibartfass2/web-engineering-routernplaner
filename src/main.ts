@@ -1,23 +1,23 @@
 import { v4 as uuidv4 } from "uuid";
 
-type StopId = uuidv4;
-type LineId = uuidv4;
-type EdgeId = string;
+export type StopId = uuidv4;
+export type LineId = uuidv4;
+export type EdgeId = string;
 
-interface PathNode {
+export interface PathNode {
   readonly id: StopId;
   readonly cost: number;
   readonly delay: number;
   readonly line: Line;
 }
 
-interface Line {
+export interface Line {
   readonly id: LineId;
   readonly display: string;
   readonly heading: StopId;
 }
 
-interface Edge {
+export interface Edge {
   readonly id: EdgeId;
   readonly cost: number;
   readonly line: Line;
@@ -25,36 +25,85 @@ interface Edge {
   readonly target: Stop;
 }
 
-interface Stop {
+export interface Stop {
   readonly id: StopId;
   readonly name: string;
   readonly edges: Edge[];
 }
 
-interface Departure {
+export interface Departure {
   readonly line: LineId;
   readonly display: string;
   readonly time: Date;
 }
 
-interface Graph {
+export interface Graph {
   readonly nodes: Stop[];
 }
 
-function getEdge(startStop: Stop, nextStop: Stop): Edge | undefined {
+export function getEdge(startStop: Stop, nextStop: Stop): Edge | undefined {
   return startStop.edges.find((edge) => edge.target === nextStop);
 }
 
-function findNode(graph: Graph, id: StopId): Stop | undefined {
+export function findNode(graph: Graph, id: StopId): Stop | undefined {
   return graph.nodes.find((node) => node.id == id);
 }
 
 const edgesToString = (edges: Edge[]) =>
   `[${edges.map((edge) => edge.target.id).join(" ")}]`;
 
-function print(graph: Graph) {
+export function print(graph: Graph) {
   const output = graph.nodes
     .map((node) => `${node.id} -> ${edgesToString(node.edges)}`)
     .join("\n");
   console.log(output);
+}
+
+export function dfsearch(
+  graph: Graph,
+  visitedNodes: StopId[],
+  existingPath: PathNode[],
+  startId: StopId,
+  targetId: StopId
+): PathNode[] | undefined {
+  const startNode = findNode(graph, startId);
+  if (!startNode) {
+    return undefined;
+  }
+
+  visitedNodes.push(startNode.id);
+  const path = existingPath.concat({
+    id: startId,
+    cost: 0,
+    delay: 0,
+    line: {
+      id: uuidv4(),
+      display: "Start",
+      heading: startId,
+    },
+  });
+
+  if (startId === targetId) {
+    return path;
+  }
+
+  for (const edge of startNode.edges) {
+    if (visitedNodes.includes(edge.target.id)) {
+      continue;
+    }
+
+    const newPath = dfsearch(
+      graph,
+      visitedNodes,
+      path,
+      edge.target.id,
+      targetId
+    );
+
+    if (newPath) {
+      return newPath;
+    }
+  }
+
+  return undefined;
 }

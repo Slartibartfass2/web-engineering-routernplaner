@@ -2,11 +2,11 @@
   "name": "web-engineering-routernplaner",
   "version": "1.0.0",
   "description": "Routenplaner als Übungsaufgabe im Kurs Web Engineering.",
-  "main": "script.js",
+  "main": "main.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/graph.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build && node dist/main.js",
+    "test": "jest -i"
   },
   "repository": {
     "type": "git",
@@ -18,8 +18,12 @@
     "url": "https://github.com/Slartibartfass2/web-engineering-routernplaner/issues"
   },
   "homepage": "https://github.com/Slartibartfass2/web-engineering-routernplaner#readme",
-  "devDependencies": {
-    "typescript": "^5.3.3",
+  "dependencies": {
     "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "typescript": "^5.3.3",
+    "ts-jest": "^29.1.2"
   }
 }
