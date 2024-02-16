@@ -1,0 +1,22 @@
+{
+  "name": "web-engineering-routernplaner",
+  "version": "1.0.0",
+  "description": "Routenplaner als Übungsaufgabe im Kurs Web Engineering.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Slartibartfass2/web-engineering-routernplaner.git"
+  },
+  "author": "Felix Schlegel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Slartibartfass2/web-engineering-routernplaner/issues"
+  },
+  "homepage": "https://github.com/Slartibartfass2/web-engineering-routernplaner#readme",
+  "dependencies": {
+    "typescript": "^5.3.3"
+  }
+}
