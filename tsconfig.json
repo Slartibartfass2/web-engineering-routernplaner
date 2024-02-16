@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "outDir": "./dist/",
+        "strict": true,
+        "sourceMap": true,
+        "target": "ES2016",
+        "declaration": true,
+        "noImplicitAny": false,
+        "lib": ["ES2016", "DOM"]
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}

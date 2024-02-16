@@ -4,6 +4,8 @@
   "description": "Routenplaner als Übungsaufgabe im Kurs Web Engineering.",
   "main": "script.js",
   "scripts": {
+    "build": "tsc",
+    "start": "node dist/graph.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,7 +18,8 @@
     "url": "https://github.com/Slartibartfass2/web-engineering-routernplaner/issues"
   },
   "homepage": "https://github.com/Slartibartfass2/web-engineering-routernplaner#readme",
-  "dependencies": {
-    "typescript": "^5.3.3"
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "uuid": "^9.0.1"
   }
 }
