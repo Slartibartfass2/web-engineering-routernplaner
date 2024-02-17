@@ -10,7 +10,7 @@ async function requestData(url: string): Promise<any> {
 }
 
 export async function getStopList(): Promise<string[]> {
-  const response = await requestData(basicLink + "/stop");
+  const response = await requestData(basicLink + "stop");
 
   if (typeof response !== "object" || !Array.isArray(response["stops"])) {
     throw new Error("Response is not an object");
@@ -30,7 +30,7 @@ interface RawLine {
 }
 
 export async function getGraph(): Promise<any> {
-  const response = await requestData(basicLink + "/data");
+  const response = await requestData(basicLink + "data");
 
   if (
     typeof response !== "object" ||

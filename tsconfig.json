@@ -1,15 +1,16 @@
 {
     "compilerOptions": {
-        "module": "CommonJS",
+        "module": "ES6",
         "outDir": "./dist/",
         "strict": true,
         "sourceMap": true,
-        "target": "ES2016",
+        "target": "ES5",
         "declaration": true,
         "noImplicitAny": false,
-        "lib": ["ES2016", "DOM"],
+        // "lib": ["ES2016", "DOM"],
         "strictNullChecks": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "moduleResolution": "node"
     },
     "include": [
         "src/**/*"

@@ -8,7 +8,6 @@
             rel="stylesheet"
             href="https://necolas.github.io/normalize.css/latest/normalize.css"
         />
-        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
         <header>
@@ -27,7 +26,9 @@
                     name="filter"
                     id="stop-filter"
                     placeholder="Filter"
+                    list="stations"
                 />
+                <datalist id="stations"></datalist>
                 <ul class="stop-list">
                     <li>
                         <div>Lorem, ipsum</div>
@@ -44,9 +45,10 @@
                 </ul>
             </section>
             <section>
-                <img src="https://picsum.photos/id/0/470/320" alt="stops map" />
+                <img id="map-img" alt="stops map"/>
             </section>
         </main>
         <footer>Copyright © 2024 Felix Schlegel.</footer>
+        <script src="bundle.js"></script>
     </body>
 </html>
