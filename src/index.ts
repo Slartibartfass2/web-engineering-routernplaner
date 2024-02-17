@@ -1,11 +1,18 @@
 import "./style.css";
 import MapImg from "./map.png";
-import { getStopList } from "./getdata";
+import { getDepartures, getGraph, getStopList } from "./getdata";
+import { dfsearch } from "./graph";
+import { Graph } from "./types";
 
 const mapImg = document.getElementById("map-img");
 if (mapImg !== null) {
   (mapImg as HTMLImageElement).src = MapImg;
 }
+
+let graph: Graph;
+getGraph().then((g) => {
+  graph = g;
+});
 
 let stations: string[] = [];
 function setStopList(stops: string[]) {
@@ -45,4 +52,34 @@ filter?.addEventListener("input", function () {
     station.toLowerCase().includes(searchText)
   );
   setStopList(suggestions);
+});
+
+const searchButton = document.getElementById(
+  "search-connection"
+) as HTMLInputElement | null;
+searchButton?.addEventListener("click", function () {
+  console.log(stations);
+  const startStation = document.getElementById(
+    "start-station"
+  ) as HTMLInputElement | null;
+  const stopStation = document.getElementById(
+    "stop-station"
+  ) as HTMLInputElement | null;
+  const start = startStation?.value ?? "";
+  const stop = stopStation?.value ?? "";
+  const startId = stations.indexOf(start.trim());
+  const stopId = stations.indexOf(stop.trim());
+  if (startId === -1 || stopId === -1) {
+    console.error("Invalid input!");
+    return;
+  }
+  getDepartures(new Date(), startId).then((departures) => {
+    const resultList = document.getElementById(
+      "result-list"
+    ) as HTMLDivElement | null;
+    if (resultList !== null) {
+      resultList.innerText = JSON.stringify(departures, null, 2);
+    }
+  });
+  // const path = dfsearch(graph, [], [], startId, stopId);
 });

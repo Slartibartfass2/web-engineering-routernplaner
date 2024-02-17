@@ -1,6 +1,6 @@
 import bent from "bent";
 import { v4 as uuidv4 } from "uuid";
-import { Departures, Edge, Line, Stop, StopId } from "./types";
+import { Departures, Edge, Graph, Line, Stop, StopId } from "./types";
 
 const basicLink = "http://webeng.informatik.uni-ulm.de/line/";
 
@@ -29,7 +29,7 @@ interface RawLine {
   }[];
 }
 
-export async function getGraph(): Promise<any> {
+export async function getGraph(): Promise<Graph> {
   const response = await requestData(basicLink + "data/");
 
   if (
